@@ -6,14 +6,28 @@
   <title>About — Learnwell</title>
   <link rel="icon" href="Learnwell_Logo.png" />
   <style>
-    @import url("https://use.typekit.net/nzx3kfk.css");
+    @font-face {
+  font-family: "Nunito";
+  src: url("fonts/nunito-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/nunito-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/nunito-700.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --blue: #2556E8; --blue-dark: #0D2D6B; --orange: #F5A31A;
       --white: #ffffff; --light-gray: #f7f8fa;
       --text: #1a1a2e; --text-muted: #555; --max: 1100px;
     }
-    body { font-family: "acumin-pro", "Helvetica Neue", Arial, sans-serif; color: var(--text); background: var(--white); }
+    body { font-family: "Nunito", "Helvetica Neue", Arial, sans-serif; color: var(--text); background: var(--white); }
 
     /* NAV */
     nav {
@@ -72,19 +86,7 @@
     /* TOOLS */
     .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 800px; margin: 0 auto; }
     .tool-item { text-align: center; }
-    .tool-logo {
-      width: 72px; height: 72px; border-radius: 50%;
-      border: 2px solid #ddd;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px; font-size: 20px; font-weight: 700; font-style: italic;
-    }
-    .tool-logo.sl { color: #e8507a; border-color: #e8507a; }
-    .tool-logo.rs { color: #4a90d9; border-color: #4a90d9; }
-    .tool-logo.cc {
-      background: linear-gradient(135deg, #fa0f00, #fa5c00, #faa700, #00ff95, #009cff, #d500ff);
-      border: none; font-style: normal;
-    }
-    .tool-logo.cc span { color: white; font-size: 17px; }
+    .tool-logo { width: 80px; height: 80px; display: block; margin: 0 auto 16px; }
     .tool-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
     .tool-item .tool-sub { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
     .tool-item p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
@@ -234,19 +236,38 @@
     <h2 class="section-heading">We use only the best software that<br>meets our <span class="accent">quality standards</span></h2>
     <div class="tools-grid">
       <div class="tool-item">
-        <div class="tool-logo sl">sl</div>
+        <svg class="tool-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" fill="white" stroke="#C469A3" stroke-width="3"/>
+          <text x="50" y="63" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="300" font-size="34" fill="#C469A3" letter-spacing="2">sl</text>
+        </svg>
         <h3>Articulate Storyline</h3>
         <div class="tool-sub">Immersive custom courses</div>
         <p>Fully custom design capabilities with personalisation and interactivity built in.</p>
       </div>
       <div class="tool-item">
-        <div class="tool-logo rs">rs</div>
+        <svg class="tool-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" fill="white" stroke="#F76300" stroke-width="3"/>
+          <text x="50" y="63" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="300" font-size="34" fill="#F76300" letter-spacing="2">rs</text>
+        </svg>
         <h3>Articulate Rise</h3>
         <div class="tool-sub">Mobile responsive courses</div>
         <p>Easy to update and super powered by embedded Storyline interactions.</p>
       </div>
       <div class="tool-item">
-        <div class="tool-logo cc"><span>Cc</span></div>
+        <svg class="tool-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ccg" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FC3528"/>
+              <stop offset="30%" stop-color="#FC7B1E"/>
+              <stop offset="55%" stop-color="#F5BC00"/>
+              <stop offset="70%" stop-color="#6ABF69"/>
+              <stop offset="85%" stop-color="#1A8EE1"/>
+              <stop offset="100%" stop-color="#9B59B6"/>
+            </linearGradient>
+          </defs>
+          <path d="M14,72 C14,82 21,88 31,88 C37,88 43,85 47,79 L38,74 C37,77 34,79 31,79 C26,79 23,76 23,71 L23,29 C23,24 26,21 31,21 C34,21 37,23 38,26 L47,21 C43,15 37,12 31,12 C21,12 14,18 14,28 Z" fill="url(#ccg)"/>
+          <path d="M52,72 C52,82 59,88 69,88 C75,88 81,85 85,79 L76,74 C75,77 72,79 69,79 C64,79 61,76 61,71 L61,29 C61,24 64,21 69,21 C72,21 75,23 76,26 L85,21 C81,15 75,12 69,12 C59,12 52,18 52,28 Z" fill="url(#ccg)"/>
+        </svg>
         <h3>Adobe Creative Suite</h3>
         <div class="tool-sub">Professional multimedia creation</div>
         <p>Interactive PDFs to intricate animations created with the industry standard.</p>
