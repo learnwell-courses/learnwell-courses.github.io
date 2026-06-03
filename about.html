@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Learnwell</title>
+  <link rel="icon" href="Learnwell_Logo.png" />
+  <style>
+    @import url("https://use.typekit.net/nzx3kfk.css");
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #2556E8;
+      --blue-dark: #0D2D6B;
+      --orange: #F5A31A;
+      --white: #ffffff;
+      --light-gray: #f7f8fa;
+      --text: #1a1a2e;
+      --text-muted: #555;
+      --max: 1100px;
+    }
+    body { font-family: "acumin-pro", "Helvetica Neue", Arial, sans-serif; color: var(--text); background: var(--white); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white); border-bottom: 1px solid #e8edf5;
+      padding: 0 32px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 36px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 15px; font-weight: 500; }
+    .nav-links a:hover { color: var(--blue); }
+    .btn-nav {
+      background: var(--orange); color: var(--white);
+      padding: 10px 20px; border-radius: 6px;
+      font-size: 14px; font-weight: 600; text-decoration: none; transition: opacity 0.2s;
+    }
+    .btn-nav:hover { opacity: 0.88; color: var(--white); }
+
+    /* SECTIONS */
+    .section { padding: 80px 32px; }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-label {
+      text-align: center; font-size: 13px; font-weight: 600;
+      color: var(--text-muted); letter-spacing: 0.04em; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .section-label::before, .section-label::after { content: ''; flex: 0 0 40px; height: 1px; background: #ccc; }
+    .section-heading {
+      text-align: center; font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; color: var(--text); margin-bottom: 56px; line-height: 1.2;
+    }
+    .section-heading .accent { color: var(--blue); }
+
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 720px; margin: 0 auto; }
+    .team-card { border-radius: 14px; overflow: hidden; border: 1px solid #e8edf5; }
+    .team-photo { width: 100%; height: 240px; object-fit: cover; object-position: top; display: block; }
+    .team-name-bar { background: var(--blue); padding: 16px 20px; }
+    .team-name-bar h3 { color: var(--white); font-size: 17px; font-weight: 700; }
+    .team-name-bar p { color: rgba(255,255,255,0.8); font-size: 13px; }
+    .team-details { padding: 20px; background: var(--white); }
+    .team-detail-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .team-detail-value { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 16px; line-height: 1.1; }
+    .team-sub { font-size: 13px; font-weight: 700; margin-bottom: 6px; margin-top: 12px; }
+    .team-list { list-style: none; }
+    .team-list li { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+
+    /* CAPABILITIES */
+    .caps-bg { background: var(--light-gray); }
+    .caps-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 800px; margin: 0 auto; }
+    .cap-tag {
+      color: var(--blue); font-size: 14px; font-weight: 500;
+      border: 1.5px solid var(--blue); border-radius: 100px;
+      padding: 6px 18px;
+    }
+
+    /* TOOLS */
+    .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 780px; margin: 0 auto; }
+    .tool-item { text-align: center; }
+    .tool-logo {
+      width: 72px; height: 72px; border-radius: 50%; border: 2px solid #e8edf5;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-size: 22px; font-weight: 700;
+    }
+    .tool-logo.sl { color: #e8507a; border-color: #e8507a; font-style: italic; }
+    .tool-logo.rs { color: #4a90d9; border-color: #4a90d9; font-style: italic; }
+    .tool-logo.cc {
+      background: linear-gradient(135deg, #fa0f00, #fa5c00, #faa700, #faff00, #00ff95, #009cff, #d500ff);
+      border: none;
+    }
+    .tool-logo.cc span { color: white; font-size: 18px; }
+    .tool-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .tool-item .tool-sub { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+    .tool-item p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section {
+      background: var(--blue); padding: 80px 32px;
+      position: relative; overflow: hidden;
+    }
+    .cta-dots { position: absolute; right: -40px; bottom: -40px; width: 340px; opacity: 0.12; pointer-events: none; }
+    .cta-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .cta-left h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .cta-left p { color: rgba(255,255,255,0.8); font-size: 15px; line-height: 1.6; margin-bottom: 32px; }
+    .cta-photos { display: flex; gap: 12px; }
+    .cta-photo { width: 130px; height: 160px; border-radius: 10px; object-fit: cover; object-position: top; }
+    .cta-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 12px; color: rgba(255,255,255,0.7); }
+    .form-group input, .form-group textarea {
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 6px; padding: 10px 12px; color: var(--white);
+      font-family: inherit; font-size: 14px; outline: none; transition: border-color 0.2s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .form-group input:focus, .form-group textarea:focus { border-color: rgba(255,255,255,0.6); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .btn-submit {
+      background: var(--white); color: var(--blue); border: none; border-radius: 6px;
+      padding: 12px 28px; font-size: 15px; font-weight: 700; cursor: pointer;
+      align-self: flex-start; font-family: inherit; transition: opacity 0.2s;
+    }
+    .btn-submit:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer { padding: 48px 32px 32px; text-align: center; border-top: 1px solid #e8edf5; }
+    footer img { height: 36px; margin-bottom: 10px; }
+    footer p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+    footer .btn-nav { display: inline-block; margin-bottom: 28px; }
+    footer .copyright { font-size: 12px; color: #aaa; }
+
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr; max-width: 380px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .cta-inner { grid-template-columns: 1fr; }
+      .cta-photos { display: none; }
+      .nav-links a:not(.btn-nav) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html"><img src="Learnwell_Logo.png" alt="Learnwell" /></a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="#">Blog</a>
+    <a href="#contact" class="btn-nav">Schedule Your Free Consultation</a>
+  </div>
+</nav>
+
+<!-- ABOUT HERO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">About us</div>
+    <h2 class="section-heading">We are siblings who believe in the<br><span class="accent">power of learning</span></h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="images/hero-banner-portrait.jpg" class="team-photo" alt="James Bedwell" />
+        <div class="team-name-bar">
+          <h3>James Bedwell</h3>
+          <p>Digital Learning Specialist</p>
+        </div>
+        <div class="team-details">
+          <div class="team-detail-title">Years in</div>
+          <div class="team-detail-value">9 years in<br>Digital Learning</div>
+          <div class="team-sub">Specialising in:</div>
+          <ul class="team-list">
+            <li>Instructional design</li>
+            <li>Interaction design</li>
+            <li>Animation &amp; video</li>
+          </ul>
+          <div class="team-sub">Loves to learn about:</div>
+          <ul class="team-list">
+            <li>Health</li>
+            <li>Gardening</li>
+            <li>Technology</li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="images/hero-banner-portrait.jpg" class="team-photo" alt="Natalia Bedwell" />
+        <div class="team-name-bar">
+          <h3>Natalia Bedwell</h3>
+          <p>eLearning Developer</p>
+        </div>
+        <div class="team-details">
+          <div class="team-detail-title">Years in</div>
+          <div class="team-detail-value">8 years in<br>Multimedia</div>
+          <div class="team-sub">Specialising in:</div>
+          <ul class="team-list">
+            <li>Web Design</li>
+            <li>UX/UI</li>
+            <li>Photography</li>
+          </ul>
+          <div class="team-sub">Loves to learn about:</div>
+          <ul class="team-list">
+            <li>Human Nature</li>
+            <li>Psychology</li>
+            <li>Balanced Living</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="section caps-bg">
+  <div class="section-inner">
+    <div class="section-label">Our capabilities</div>
+    <h2 class="section-heading">Over the years we've developed our skills to<br>offer you a <span class="accent">holistic learning experience</span></h2>
+    <div class="caps-tags">
+      <span class="cap-tag">Interactive scenarios</span>
+      <span class="cap-tag">Instructional design</span>
+      <span class="cap-tag">Learner needs analysis</span>
+      <span class="cap-tag">Knowledge management</span>
+      <span class="cap-tag">Training presentations</span>
+      <span class="cap-tag">Video editing</span>
+      <span class="cap-tag">Voiceovers</span>
+      <span class="cap-tag">Animation</span>
+      <span class="cap-tag">Workbooks</span>
+      <span class="cap-tag">UX/UI</span>
+      <span class="cap-tag">Interactive PDFs</span>
+      <span class="cap-tag">Web design and development</span>
+      <span class="cap-tag">Graphic design</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Tools we use</div>
+    <h2 class="section-heading">We use only the best software that<br>meets our <span class="accent">quality standards</span></h2>
+    <div class="tools-grid">
+      <div class="tool-item">
+        <div class="tool-logo sl">sl</div>
+        <h3>Articulate Storyline</h3>
+        <div class="tool-sub">Immersive custom courses</div>
+        <p>Fully custom design capabilities with personalisation and interactivity built in.</p>
+      </div>
+      <div class="tool-item">
+        <div class="tool-logo rs">rs</div>
+        <h3>Articulate Rise</h3>
+        <div class="tool-sub">Mobile responsive courses</div>
+        <p>Easy to update and super powered by embedded Storyline interactions.</p>
+      </div>
+      <div class="tool-item">
+        <div class="tool-logo cc"><span>Cc</span></div>
+        <h3>Adobe Creative Suite</h3>
+        <div class="tool-sub">Professional multimedia creation</div>
+        <p>Interactive PDFs to intricate animations created with the industry standard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <img src="images/dots-white.png" class="cta-dots" alt="" />
+  <div class="cta-inner">
+    <div class="cta-left">
+      <h2>Got a project? Let's talk</h2>
+      <p>Fill out the form below, and we'll send you a booking link. We'll have a free 30 minute call to get to know each other, discuss your learning needs and answer any questions you may have.</p>
+      <div class="cta-photos">
+        <img src="images/hero-banner-portrait.jpg" class="cta-photo" alt="James Bedwell" />
+      </div>
+    </div>
+    <form class="cta-form" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name <span style="opacity:0.5">(required)</span></label>
+          <input type="text" />
+        </div>
+        <div class="form-group">
+          <label>Last Name <span style="opacity:0.5">(required)</span></label>
+          <input type="text" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email <span style="opacity:0.5">(required)</span></label>
+        <input type="email" />
+      </div>
+      <div class="form-group">
+        <label>Let us know the details of your project or objectives <span style="opacity:0.5">(Optional but helpful)</span></label>
+        <textarea></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="Learnwell_Logo.png" alt="Learnwell" /><br>
+  <p>Courses your learners love.</p>
+  <a href="#contact" class="btn-nav">Schedule Your Free Consultation</a><br>
+  <span class="copyright">© Learnwell Courses 2025</span>
+</footer>
+
+</body>
+</html>
