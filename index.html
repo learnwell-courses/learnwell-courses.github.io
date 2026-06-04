@@ -13,11 +13,11 @@
       font-family: "acumin-pro", "Helvetica Neue", Arial, sans-serif;
       background: #fff; display: flex; flex-direction: column;
       align-items: center; justify-content: center; min-height: 100vh;
-      overflow: hidden;
     }
     body::before {
       content: ""; position: fixed; inset: 0;
-      background-image: linear-gradient(rgba(37,86,232,0.05) 1px, transparent 1px),
+      background-image:
+        linear-gradient(rgba(37,86,232,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(37,86,232,0.05) 1px, transparent 1px);
       background-size: 48px 48px; pointer-events: none;
     }
@@ -37,20 +37,22 @@
     .logo { width: 220px; margin-bottom: 48px; }
     .divider { width: 36px; height: 3px; background: var(--orange); border-radius: 2px; margin-bottom: 24px; }
     h1 {
-      font-family: "acumin-pro", "Helvetica Neue", Arial, sans-serif;
       font-weight: 700; font-size: clamp(2.8rem, 8vw, 5.5rem);
       color: var(--blue-dark); letter-spacing: -0.02em; line-height: 1;
     }
-    h1 span { color: var(--blue); }
-    .dot { display: inline-block; width: 0.16em; height: 0.16em; background: var(--orange);
-      border-radius: 50%; vertical-align: super; margin-left: 0.05em; position: relative; top: 0.1em; }
+    h1 span.blue { color: var(--blue); }
+    h1 span.dot {
+      display: inline-block; width: 0.16em; height: 0.16em;
+      background: var(--orange); border-radius: 50%;
+      vertical-align: super; margin-left: 0.05em; position: relative; top: 0.1em;
+    }
   </style>
 </head>
 <body>
   <main>
     <img src="Learnwell_Logo.png" class="logo" alt="Learnwell" />
     <div class="divider"></div>
-    <h1><span>Coming</span> soon<span class="dot"></span></h1>
+    <h1><span class="blue">Coming</span> soon<span class="dot"></span></h1>
   </main>
 </body>
 </html>
